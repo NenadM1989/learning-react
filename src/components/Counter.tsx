@@ -1,31 +1,21 @@
 import React, { useState } from "react";
+import Button from "./Button";
+import useCounter from "./useCounter";
 
 const STEP = 7;
 const MAX = 20;
 
 const Counter = () => {
-  const [count, setCount] = useState(13);
+  const { count, increment, decrement, textColor } = useCounter({
+    STEP,
+    MAX,
+  });
 
-  const increment = () => {
-    if (count + STEP > MAX) {
-      return;
-    }
-    setCount((prevCount) => prevCount + STEP);
-  };
-
-  const decrement = () => {
-    if (count - STEP < 0) {
-      return;
-    }
-    setCount((prevCount) => prevCount - STEP);
-  };
-
-  const textColor = count <= MAX / 2 ? "red" : "green";
   return (
     <div>
-      <button onClick={increment}>+</button>
+      <Button onClick={increment}>+</Button>
       <div style={{ color: textColor }}>{count}</div>
-      <button onClick={decrement}>-</button>
+      <Button onClick={decrement}>-</Button>
     </div>
   );
 };
