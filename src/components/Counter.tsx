@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import useCounter from "./useCounter";
+import '../components/Counter.css'
 
-const STEP = 7;
+const STEP = 3;
 const MAX = 20;
 
 const Counter = () => {
@@ -12,10 +13,10 @@ const Counter = () => {
   });
 
   return (
-    <div>
-      <Button onClick={increment}>+</Button>
+    <div className="counter-container">
+      <Button onClick={increment} className={'add'}>+</Button>
       <div style={{ color: textColor }}>{count}</div>
-      <Button onClick={decrement}>-</Button>
+      <Button onClick={decrement} className={'subtrac'}>-</Button>
     </div>
   );
 };
