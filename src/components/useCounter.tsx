@@ -3,10 +3,13 @@ import React, { useState } from "react";
 interface UseCounterProps {
   STEP: number;
   MAX: number;
+  initialState: number;
+  colorAbove: string;
+  colorBellow: string;
 }
 
-const useCounter = ({ STEP, MAX }: UseCounterProps) => {
-  const [count, setCount] = useState(0);
+const useCounter = ({ STEP, MAX, initialState, colorAbove,colorBellow }: UseCounterProps) => {
+  const [count, setCount] = useState(initialState);
 
   const increment = () => {
     if (count + STEP > MAX) {
@@ -22,7 +25,7 @@ const useCounter = ({ STEP, MAX }: UseCounterProps) => {
     setCount((prevCount) => prevCount - STEP);
   };
 
-  const textColor = count <= MAX / 2 ? "red" : "green";
+  const textColor = count <= MAX / 2 ? colorBellow : colorAbove;
   return { increment, decrement, count, textColor };
 };
 

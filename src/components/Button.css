@@ -1,8 +1,10 @@
 .btn {
     border: none;
     width:100px;
-    height: 30px;
+    height: 40px;
     margin-top: 20px;
     margin-bottom: 20px;
     color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
 }
